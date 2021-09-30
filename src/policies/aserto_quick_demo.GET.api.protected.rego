@@ -1,4 +1,4 @@
-package policies.hello
+package aserto_quick_demo.GET.api.protected
 
 # default to a "closed" system, 
 # only grant access when explicitly granted
@@ -8,13 +8,6 @@ default visible = false
 default enabled = false
 
 allowed {
-    input.role == "web-admin"
-}
-
-enabled {
-    visible
-}
-
-visible {
-    input.app == "web-console"
+    props = input.user.attributes.properties
+    props.role == "manager"
 }
